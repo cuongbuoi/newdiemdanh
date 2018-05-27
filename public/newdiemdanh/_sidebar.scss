@@ -21,7 +21,7 @@
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
+    padding: 0 0 20px 0;
 }
 
 #sidebar ul p {
@@ -39,8 +39,13 @@
     background: #eee;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #000;
+#sidebar ul li.active > a {
+    color: #fff;
+    background-color: $blue;
+}
+#sidebar ul li ul li.active > a {
+    color: #fff;
+    background-color: $blue +20;
 }
 
 
@@ -93,7 +98,7 @@ a.article, a.article:hover {
 ----------------------------------------------------- */
 #content {
     width: 100%;
-    padding: 20px;
+    padding: 15px 5px 0 5px;
     min-height: 100vh;
     transition: all 0.3s;
 }

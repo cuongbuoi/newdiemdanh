@@ -1,4 +1,4 @@
-<div class="header py-4">
+<div class="header py-2">
   <div class="container-fluid">
     <div class="d-flex">
       <button type="button" id="sidebarCollapse" class="btn btn-primary btn-sidebar mr-1">
