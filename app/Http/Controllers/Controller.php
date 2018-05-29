@@ -17,4 +17,19 @@ class Controller extends BaseController
     public function login(){
     	return view('login');
     }
+     public function trainingList(){
+    	return view('modules.training-list');
+    }
+     public function training(){
+    	return view('modules.training');
+    }
+    public function quanLyMonHoc(){
+    	return view('modules.quanlymonhoc');
+    }
+     public function quanLySinhVien(){
+    	return view('modules.quanlysinhvien');
+    }
+     public function quanLyLop(){
+    	return view('modules.quanlylop');
+    }
 }

@@ -7,16 +7,29 @@
 				<div class="card">
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
-						<h3 class="card-title">Nạp hình ảnh</h3>
+						<h3 class="card-title text-uppercase">Training cho sinh viên Ngô Minh Thư</h3>
 						<div class="card-options">
 							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
 						</div>
 					</div>
 					<div class="card-body">
-						<div class="img-detection">
-							<img class="rounded" width="100%" src="{!!asset('assets/images/faces.png') !!}" alt="">
-							<span class="detected">Name</span>
-							<span class="undetected">Name</span>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="img-training">
+									<img src="{!!asset('demo/faces/female/25.jpg') !!}" alt="">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="img-training">
+									<img src="{!!asset('demo/faces/female/25.jpg') !!}" alt="">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="img-training">
+									<img src="" alt="">
+								</div>
+							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -25,25 +38,17 @@
 				<div class="card">
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
-						<h3 class="card-title">Thao tác</h3>
+						<h3 class="card-title text-uppercase">Thao tác</h3>
 						<div class="card-options">
 							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
 						</div>
 					</div>
 					<div class="card-body">
-						<form>
-							<div class="form-group">
-								<label>Chọn lớp</label>
-								<select  id="" class="form-control">
-									<option value="">Lorem ipsum dolor sit amet.</option>
-									<option value="">Optio illo asperiores dignissimos! Laudantium.</option>
-									<option value="">At veritatis sunt officiis, nesciunt.</option>
-								</select>
-							</div>
+						<form action="">
 							<div class="form-group">
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" multiple>
-									<label class="custom-file-label">Chọn ảnh</label>
+									<label class="custom-file-label">Chọn tối đa 3 ảnh</label>
 								</div>
 							</div>
 							<div class="text-right">

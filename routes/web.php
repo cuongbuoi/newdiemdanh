@@ -21,3 +21,18 @@ Route::get('login',[
     'uses'=>'Controller@login'
 ]
 );
+Route::get('training-list',[
+    'as' => 'training-list',
+    'uses'=>'Controller@trainingList'
+]
+);
+Route::get('training',[
+    'as' => 'training',
+    'uses'=>'Controller@training'
+]
+);
+Route::group(['prefix' => 'quan-ly'], function () {
+        Route::get('quan-ly-mon-hoc',['as'=>'quan-ly-mon-hoc','uses'=>'Controller@quanLyMonHoc']);
+         Route::get('quan-ly-sinh-vien',['as'=>'quan-ly-sinh-vien','uses'=>'Controller@quanLySinhVien']);
+          Route::get('quan-ly-lop',['as'=>'quan-ly-lop','uses'=>'Controller@quanLylop']);
+    });
