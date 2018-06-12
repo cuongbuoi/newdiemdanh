@@ -12,12 +12,12 @@
 */
 
 Route::get('/',[
-    'as' => 'index',
+    'as' => 'gdang-nhap',
     'uses'=>'Controller@glogin'
 ]
 );
-Route::get('login',['as' => 'gdang-nhap','uses'=>'Controller@glogin']);
-Route::post('login',['as' => 'pdang-nhap','uses'=>'Controller@plogin']);
+
+Route::post('/',['as' => 'pdang-nhap','uses'=>'Controller@plogin']);
 Route::get('logout',['as'=>'logout','uses'=>'Controller@logout']);
 
 Route::group(['prefix' => 'quan-ly','middleware' => ['checkAdmin']], function () {
@@ -49,6 +49,9 @@ Route::group(['prefix' => 'quan-ly','middleware' => ['checkAdmin']], function ()
 
         Route::get('quan-ly-sinh-vien',['as'=>'quan-ly-sinh-vien','uses'=>'Controller@quanLySinhVien']);
         //Route::get('quan-ly-lop',['as'=>'quan-ly-lop','uses'=>'Controller@quanLylop']);
+
+        //route ajax
+        Route::post('ajaxdeletemonhoc',['as'=>'ajax_delete_monhoc','uses'=>'Controller@Delete_monhoc']);
  
 
     });

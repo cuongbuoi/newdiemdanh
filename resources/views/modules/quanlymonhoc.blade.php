@@ -83,6 +83,7 @@
 									@foreach($mh as $key=>$val)
 									<tr>
 										<td>{{$key+1}}</td>
+										<td hidden class='id'>{{$val->id}}</td>
 										<td>{{$val->tenmon}}</td>
 										<td>{{$val->sotinchi}}</td>
 										<td>{{$val->sotiet}}</td>
@@ -104,6 +105,23 @@
 </div>
 
 <script>
+	require(['jquery'],function(){
+		$('.delete').click(function (e) { 
+			var t=$(this).closest('tr').find('.id').text()
+			$.ajax({
+				type: "post",
+				url: "{{route('ajax_delete_monhoc')}}",
+				data: {
+					'_token':"{{csrf_token()}}",
+					'id':t
+				},
 	
+				success: function (response) {
+					response=='ok'? location.reload():''
+				}
+			});
+			
+		});
+    });
 </script>
 @endsection

@@ -79,6 +79,11 @@ class Controller extends BaseController
         ]);
         return redirect()->route('gquan-ly-mon-hoc')->with(['message'=>'Thêm thành công!']);
     }
+    public function Postupdatemonhoc(Request $request,$id)
+    {
+        monhoc::find($id)->update(['tenmon'=>$request->tenmon,'sotinchi'=>$request->sotinchi,'sotiet'=>$request->sotiet]);
+        return redirect()->route('gquan-ly-mon-hoc');
+    }
     public function Getupdatemonhoc($id)
     {
         $mh=monhoc::all();
@@ -91,6 +96,14 @@ class Controller extends BaseController
         }
        
         
+    }
+    public function Delete_monhoc(Request $request){
+        if($request->ajax()){
+            if(monhoc::find($request->id)->delete())
+                return 'ok';
+            else
+                return 'error';
+        }
     }
     public function GetquanLyLop(){
         $lop=Lop::all();
