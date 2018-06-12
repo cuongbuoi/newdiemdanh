@@ -14,25 +14,26 @@
 					</div>
 					<div class="card-body">
 						<form action="" method="post">
-							<input type="hidden" name="_token" value="{{csrf_token()}}">
-							{{-- <div class="form-group">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" multiple>
-									<label class="custom-file-label">Nạp file Excel</label>
-								</div>
-							</div> --}}
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
-										<label>Mã lớp</label>
-										<input type="text" class="form-control" placeholder="Nhập mã lớp..." name="malop">
+										<label>Chọn lớp</label>
+										<select  id="" class="form-control">
+											<option value="">HTTT</option>
+											<option value="">CNPM</option>
+											<option value="">CNM</option>
+										</select>
 										<p class="text-danger">{{$errors->first('malop')}}</p>
 									</div>
 								</div>
 								<div class="col-lg-6">
 										<div class="form-group">
-											<label>Tên lớp</label>
-											<input type="text" class="form-control" placeholder="Nhập tên lớp..." name="tenlop">
+											<label>Chọn môn</label>
+											<select  id="" class="form-control">
+												<option value="">HTTT</option>
+												<option value="">CNPM</option>
+												<option value="">CNM</option>
+											</select>
 											<p class="text-danger">{{$errors->first('tenlop')}}</p>
 										</div>
 								</div>
@@ -48,7 +49,7 @@
 				<div class="card">
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
-						<h3 class="card-title text-uppercase">Danh sách lớp</h3>
+						<h3 class="card-title text-uppercase">Danh sách điểm danh</h3>
 						<div class="card-options">
 							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
 						</div>
@@ -59,22 +60,23 @@
 								<thead>
 									<tr>
 										<th>STT</th>
-										<th>Lớp</th>
+										<th>MSSV</th>
+										<th>Tên sinh viên</th>
+										<th class="text-center">Số buổi vắng</th>
 										<th class="text-right">Chức năng</th>
 									</tr>
 								</thead>
 								<tbody>
-									@foreach($lop as $key=>$val)
 									<tr>
-										<td>{{$key+1}}</td>
-										<td>{{$val->malop}}</td>
-										<td>{{$val->tenlop}}</td>
+										<td>1</td>
+										<td>15C4801040046</td>
+										<td>Ngô Minh Thư</td>
+										<td class="text-center">2</td>
 										<td class="text-right">
-											<a href="#" class="btn btn-warning"><i class="fe fe-edit"></i></a>
-											<button class="btn btn-danger delete"><i class="fe fe-trash"></i></button>
+											<a href="{{route('chi-tiet-buoi-vang')}}" class="btn btn-success"><i class="fe fe-eye"></i> Xem chi tiết</a>
 										</td>
 									</tr>
-									@endforeach
+
 								</tbody>
 							</table>
 						</div>

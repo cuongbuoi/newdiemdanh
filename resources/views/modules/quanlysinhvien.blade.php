@@ -50,7 +50,9 @@
 								<thead>
 									<tr>
 										<th>STT</th>
+										<th>MSSV</th>
 										<th>Tên sinh viên</th>
+										<th>Giới tính</th>
 										<th>Lớp</th>
 										<th class="text-right">Chức năng</th>
 									</tr>
@@ -58,7 +60,9 @@
 								<tbody>
 									<tr>
 										<td>1</td>
+										<td>15C4801040046</td>
 										<td>Ngô Minh Thư</td>
+										<td>Nam</td>
 										<td>Hệ thống thông tin</td>
 										<td class="text-right">
 											<a href="#" class="btn btn-warning"><i class="fe fe-edit"></i></a>

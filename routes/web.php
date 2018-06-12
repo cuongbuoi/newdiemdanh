@@ -55,6 +55,8 @@ Route::group(['prefix' => 'quan-ly', 'middleware' => ['checkAdmin']], function (
     'uses' => 'Controller@training',
     ]
     );
+     Route::get('quan-ly-diem-danh', ['as' => 'quan-ly-diem-danh', 'uses' => 'Controller@quanLyDiemDanh']);
+     Route::get('chi-tiet-buoi-vang', ['as' => 'chi-tiet-buoi-vang', 'uses' => 'Controller@chiTietBuoiVang']);
     Route::get('quan-ly-mon-hoc', ['as' => 'gquan-ly-mon-hoc', 'uses' => 'Controller@GetquanLyMonHoc']);
     Route::post('quan-ly-mon-hoc', ['as' => 'pquan-ly-mon-hoc', 'uses' => 'Controller@PostquanLyMonHoc']);
     Route::get('updatemonhoc/{id}', ['as' => 'gupdatemh', 'uses' => 'Controller@Getupdatemonhoc']);

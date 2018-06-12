@@ -124,5 +124,11 @@ class Controller extends BaseController
     public function quanLyLop(){
 
     }
+    public function quanLyDiemDanh(){
+        return view('modules.danhsachdiemdanh');
+    }
+    public function chiTietBuoiVang(){
+        return view('modules.chitietbuoivang');
+    }
     
 }
