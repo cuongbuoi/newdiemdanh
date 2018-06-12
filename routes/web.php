@@ -16,8 +16,7 @@ Route::get('/',[
     'uses'=>'Controller@glogin'
 ]
 );
-Route::get('login',['as' => 'gdang-nhap','uses'=>'Controller@glogin']);
-Route::post('login',['as' => 'pdang-nhap','uses'=>'Controller@plogin']);
+Route::post('/',['as' => 'pdang-nhap','uses'=>'Controller@plogin']);
 Route::get('logout',['as'=>'logout','uses'=>'Controller@logout']);
 
 Route::group(['prefix' => 'quan-ly','middleware' => ['checkAdmin']], function () {
