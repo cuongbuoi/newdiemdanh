@@ -13,19 +13,40 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<form action="">
+						<form action="" method="post">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Mã sinh viên</label>
-										<input type="text" class="form-control" placeholder="Nhập mã sinh viên...">
+										<input type="text" class="form-control" placeholder="Nhập mã sinh viên..." name="masv">
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Tên sinh viên</label>
-										<input type="text" class="form-control" placeholder="Nhập tên sinh viên...">
+										<input type="text" class="form-control" placeholder="Nhập tên sinh viên..." name="hoten">
 									</div>
+								</div>
+								<div class="col-lg-6">
+										<div class="form-group">
+											<label>Giới tính</label>
+											<select name="gioitinh" id="" class="form-control">
+												<option value="Nam">Nam</option>
+												<option value="Nữ">Nữ</option>
+											</select>
+										</div>
+								</div>
+								<div class="col-lg-6">
+										<div class="form-group">
+											<label>Lớp</label>
+											<select name="malop" id="" class="form-control">
+												@foreach($lop as $val)
+												<option value="{{ $val->malop }}">{{ $val->tenlop }}</option>
+												
+												@endforeach
+											</select>
+										</div>
 								</div>
 							</div>
 							<div class="text-right">
@@ -58,27 +79,20 @@
 										<th>MSSV</th>
 										<th>Tên sinh viên</th>
 										<th>Giới tính</th>
-										<th>Lớp</th>
+										{{--<th>Lớp</th> --}}
 										<th class="text-right">Chức năng</th>
 									</tr>
 								</thead>
 								<tbody>
 									@foreach($data as $key=>$val)
 									<tr>
-<<<<<<< HEAD
-										<td>1</td>
-										<td>15C4801040046</td>
-										<td>Ngô Minh Thư</td>
-										<td>Nam</td>
-										<td>Hệ thống thông tin</td>
-=======
 										<td>{{$key+1}}</td>
 										<td hidden class='id'>{{$val->id}}</td>
+										<td>{{$val->masv}}</td>
 										<td>{{$val->hoten}}</td>
-										<td>{{$val->malop}}</td>
->>>>>>> 86ea606f1bdd88f2e603f4767d875cfe77248887
+										<td>{{ $val->gioitinh }}</td>
 										<td class="text-right">
-											<a href="#" class="btn btn-warning"><i class="fe fe-edit"></i></a>
+											<a href="{{ route('update-sinh-vien',$val->id) }}" class="btn btn-warning"><i class="fe fe-edit"></i></a>
 											<a  class="btn btn-success delete"><i class="fe fe-delete"></i></a>
 										</td>
 									</tr>

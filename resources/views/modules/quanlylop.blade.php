@@ -59,7 +59,8 @@
 								<thead>
 									<tr>
 										<th>STT</th>
-										<th>Lớp</th>
+										<th>Mã lớp</th>
+										<th >Tên lớp</th>
 										<th class="text-right">Chức năng</th>
 									</tr>
 								</thead>
@@ -67,10 +68,11 @@
 									@foreach($lop as $key=>$val)
 									<tr>
 										<td>{{$key+1}}</td>
+										<td hidden class="id">{{ $val->id }}</td>
 										<td>{{$val->malop}}</td>
 										<td>{{$val->tenlop}}</td>
 										<td class="text-right">
-											<a href="#" class="btn btn-warning"><i class="fe fe-edit"></i></a>
+											<a href="{{ route('update-lop',$val->id) }}" class="btn btn-warning"><i class="fe fe-edit"></i></a>
 											<button class="btn btn-danger delete"><i class="fe fe-trash"></i></button>
 										</td>
 									</tr>
@@ -84,4 +86,29 @@
 		</div>
 	</div>
 </div>
+<script>
+		require(['jquery'],function(){
+		$('.delete').click(function (e) { 
+			
+			var t=$(this).closest('tr').find('.id').text()
+			if(confirm("Are you sure!"))
+			{
+				$.ajax({
+					type: "post",
+					url: "{{route('destroylop')}}",
+					data: {
+						'_token':"{{csrf_token()}}",
+						'id':t
+					},
+		
+					success: function (response) {
+						response=='ok'? location.reload():''
+					}
+				});
+			}
+		
+			
+		});
+    });
+</script>
 @endsection

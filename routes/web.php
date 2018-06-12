@@ -24,12 +24,11 @@ Route::get('/test', function () {
 Route::get(
     '/',
     [
-    'as' => 'index',
+    'as' => 'gdang-nhap',
     'uses' => 'Controller@glogin',
 ]
 );
-Route::get('login', ['as' => 'gdang-nhap', 'uses' => 'Controller@glogin']);
-Route::post('login', ['as' => 'pdang-nhap', 'uses' => 'Controller@plogin']);
+Route::post('/', ['as' => 'pdang-nhap', 'uses' => 'Controller@plogin']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'Controller@logout']);
 
 Route::group(['prefix' => 'quan-ly', 'middleware' => ['checkAdmin']], function () {
@@ -73,20 +72,17 @@ Route::group(['prefix' => 'quan-ly', 'middleware' => ['checkAdmin']], function (
         Route::post('quan-ly-lop',['as'=>'pquan-ly-lop','uses'=>'Controller@PostquanLylop']);
 
         Route::get('quan-ly-sinh-vien',['as'=>'quan-ly-sinh-vien','uses'=>'Controller@quanLySinhVien']);
-        //Route::get('quan-ly-lop',['as'=>'quan-ly-lop','uses'=>'Controller@quanLylop']);
+        Route::post('quan-ly-sinh-vien',['as'=>'quan-ly-sinh-vien','uses'=>'Controller@Post_themsinhvien']);
+        Route::get('update-sinh-vien/{id}',['as'=>'update-sinh-vien','uses'=>'Controller@UpdateSinhVien']);
+        Route::post('update-sinh-vien/{id}',['as'=>'update-sinh-vien','uses'=>'Controller@PostUpdateSinhVien']);
+        Route::get('update-lop/{id}',['as'=>'update-lop','uses'=>'Controller@update_lop']);
+        Route::post('update-lop/{id}',['as'=>'update-lop','uses'=>'Controller@post_update_lop']);
         Route::get('sinhvien','Controller@quanLySinhVien');
 
         //route ajax
         Route::post('ajaxdeletemonhoc',['as'=>'ajax_delete_monhoc','uses'=>'Controller@Delete_monhoc']);
         Route::post('destroy_sinhvien',['as'=>'destroysinhvien','uses'=>'Controller@destroy_sinhvien']);
- 
-
-    Route::get('quan-ly-lop', ['as' => 'gquan-ly-lop', 'uses' => 'Controller@GetquanLylop']);
-    Route::post('quan-ly-lop', ['as' => 'pquan-ly-lop', 'uses' => 'Controller@PostquanLylop']);
-
-    Route::get('quan-ly-sinh-vien', ['as' => 'quan-ly-sinh-vien', 'uses' => 'Controller@quanLySinhVien']);
+        Route::post('destroy_lop',['as'=>'destroylop','uses'=>'Controller@destroy_lop']);
     //Route::get('quan-ly-lop',['as'=>'quan-ly-lop','uses'=>'Controller@quanLylop']);
 
-    //route ajax
-    Route::post('ajaxdeletemonhoc', ['as' => 'ajax_delete_monhoc', 'uses' => 'Controller@Delete_monhoc']);
 });

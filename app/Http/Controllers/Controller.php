@@ -151,5 +151,54 @@ class Controller extends BaseController
     public function chiTietBuoiVang(){
         return view('modules.chitietbuoivang');
     }
+    public function Post_themsinhvien(Request $request){
+        try{
+            SinhVien::create($request->all());
+            return redirect()->back();
+        }
+        catch(\Illuminate\Database\QueryException $ex){
+            
+        }
+    }
+    public function UpdateSinhVien($id)
+    {
+        $data=SinhVien::find($id);
+        if($data)
+        {
+            $lop=Lop::all();
+            return view('modules.updatesinhvien',compact('data','lop'));
+        }
+        else
+        {
+            return redirect()->route('quan-ly-sinh-vien');
+        }
+    }
+    public function PostUpdateSinhVien(Request $request,$id){
+        SinhVien::find($id)->update([
+            'hoten'=>$request->hoten,
+            'gioitinh'=>$request->gioitinh,
+            'malop'=>$request->malop
+        ]);
+        return redirect()->route('quan-ly-sinh-vien');
+    }
+    public function destroy_lop(Request $request){
+        if($request->ajax()){
+            if(Lop::find($request->id)->delete())
+                return 'ok';
+            else
+                return 'error';
+            
+        }
+    }
+    public function update_lop($id){
+        $data=Lop::find($id);
+        return view('modules.updatelop',compact('data'));
+    }
+    public function post_update_lop(Request $request,$id){
+        Lop::find($id)->update([
+            'tenlop'=>$request->tenlop
+        ]);
+        return redirect()->route('gquan-ly-lop');
+    }
     
 }
