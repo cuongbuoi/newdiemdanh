@@ -20,6 +20,7 @@
 									<div class="form-group">
 										<label>Mã môn</label>
 										<input type="text" class="form-control" placeholder="Nhập mã môn..." name="mamon">
+										<p class="text-danger">{{$errors->first('mamon')}}</p>
 									</div>
 								</div>
 							</div>
@@ -28,6 +29,7 @@
 										<div class="form-group">
 											<label>Tên môn</label>
 											<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon">
+											<p class="text-danger">{{$errors->first('tenmon')}}</p>
 										</div>
 									</div>
 							</div>
@@ -36,6 +38,7 @@
 									<div class="form-group">
 										<label>Số tín chỉ</label>
 										<input type="text" class="form-control" placeholder="Nhập số tín chỉ..." name="sotinchi">
+										<p class="text-danger">{{$errors->first('sotinchi')}}</p>
 									</div>
 								</div>
 							</div>
@@ -44,6 +47,7 @@
 										<div class="form-group">
 											<label>Số tiết</label>
 											<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet">
+											<p class="text-danger">{{$errors->first('sotiet')}}</p>
 										</div>
 									</div>
 							</div>
@@ -83,8 +87,8 @@
 										<td>{{$val->sotinchi}}</td>
 										<td>{{$val->sotiet}}</td>
 										<td class="text-right">
-											<a href="{{route('gupdatemh')}}" class="btn btn-warning" id="edit"><i class="fe fe-edit"></i></a>
-											{{-- <a href="#" class="btn btn-success"><i class="fe fe-edit"></i></a> --}}
+											<a href="{{route('gupdatemh',$val->id)}}" class="btn btn-warning" id="edit"><i class="fe fe-edit"></i></a>
+											<button class="btn btn-danger delete"><i class="fe fe-trash"></i></button>
 										</td>
 									</tr>
 									@endforeach

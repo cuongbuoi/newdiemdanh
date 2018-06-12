@@ -19,7 +19,7 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label>Tên môn</label>
-											<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon">
+										<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon" value="{{$up->tenmon}}">
 										</div>
 									</div>
 							</div>
@@ -27,7 +27,7 @@
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Số tín chỉ</label>
-										<input type="text" class="form-control" placeholder="Nhập số tín chỉ..." name="sotinchi">
+										<input type="text" class="form-control" placeholder="Nhập số tín chỉ..." name="sotinchi" value="{{$up->sotinchi}}">
 									</div>
 								</div>
 							</div>
@@ -35,7 +35,7 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label>Số tiết</label>
-											<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet">
+										<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet" value="{{$up->sotiet}}">
 										</div>
 									</div>
 							</div>

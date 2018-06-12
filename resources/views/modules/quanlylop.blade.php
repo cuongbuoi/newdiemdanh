@@ -13,12 +13,27 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<form action="">
-							<div class="form-group">
+						<form action="" method="post">
+							<input type="hidden" name="_token" value="{{csrf_token()}}">
+							{{-- <div class="form-group">
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" multiple>
 									<label class="custom-file-label">Nạp file Excel</label>
 								</div>
+							</div> --}}
+							<div class="col-lg-6">
+									<div class="form-group">
+										<label>Mã lớp</label>
+										<input type="text" class="form-control" placeholder="Nhập mã lớp..." name="malop">
+										<p class="text-danger">{{$errors->first('malop')}}</p>
+									</div>
+							</div>
+							<div class="col-lg-6">
+									<div class="form-group">
+										<label>Tên lớp</label>
+										<input type="text" class="form-control" placeholder="Nhập tên lớp..." name="tenlop">
+										<p class="text-danger">{{$errors->first('tenlop')}}</p>
+									</div>
 							</div>
 							<div class="text-right">
 								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle"></i> Thêm danh sách lớp</button>
@@ -47,15 +62,17 @@
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($lop as $key=>$val)
 									<tr>
-										<td>1</td>
-										<td>Hệ thống thông tin</td>
+										<td>{{$key+1}}</td>
+										<td>{{$val->malop}}</td>
+										<td>{{$val->tenlop}}</td>
 										<td class="text-right">
 											<a href="#" class="btn btn-warning"><i class="fe fe-edit"></i></a>
-											<a href="#" class="btn btn-success"><i class="fe fe-edit"></i></a>
+											<button class="btn btn-danger delete"><i class="fe fe-trash"></i></button>
 										</td>
 									</tr>
-
+									@endforeach
 								</tbody>
 							</table>
 						</div>

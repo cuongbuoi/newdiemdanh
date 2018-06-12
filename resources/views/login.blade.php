@@ -45,12 +45,14 @@
                   <div class="form-group">
                     <label class="form-label">Email address</label>
                     <input type="text" class="form-control" name='taikhoan' placeholder="Nhập Username">
+                    <p class="text-danger">{{$errors->first('taikhoan')}}</p>
                   </div>
                   <div class="form-group">
                     <label class="form-label">
                       Password
                     </label>
                     <input type="password" class="form-control" name='matkhau' placeholder="Nhập Mật Khẩu">
+                    <p class="text-danger">{{$errors->first('matkhau')}}</p>
                   </div>
                   <div class="form-footer">
                     <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
