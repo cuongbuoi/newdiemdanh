@@ -65,18 +65,13 @@
 								<tbody>
 									@foreach($data as $key=>$val)
 									<tr>
-<<<<<<< HEAD
-										<td>1</td>
-										<td>15C4801040046</td>
-										<td>Ngô Minh Thư</td>
-										<td>Nam</td>
-										<td>Hệ thống thông tin</td>
-=======
+
 										<td>{{$key+1}}</td>
+										<td>{{$val->masv}}</td>
 										<td hidden class='id'>{{$val->id}}</td>
 										<td>{{$val->hoten}}</td>
+										<td>{{$val->gioitinh}}</td>
 										<td>{{$val->malop}}</td>
->>>>>>> 86ea606f1bdd88f2e603f4767d875cfe77248887
 										<td class="text-right">
 											<a href="#" class="btn btn-warning"><i class="fe fe-edit"></i></a>
 											<a  class="btn btn-success delete"><i class="fe fe-delete"></i></a>

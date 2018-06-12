@@ -191,11 +191,6 @@ class Controller extends BaseController
         return redirect()->route('gquan-ly-lop')->with(['message' => 'Thêm thành công!']);
     }
 
-<<<<<<< HEAD
-    public function quanLySinhVien()
-    {
-        return view('modules.quanlysinhvien');
-=======
      public function quanLySinhVien(Request $request){
         if($request->get('query') && $request->get('query')!='')
         {
@@ -219,20 +214,18 @@ class Controller extends BaseController
             return 'ok';
         }
        
->>>>>>> 4069ce422a3d899a92665f498da8e02d8e5a9607
+
     }
 
     public function quanLyLop()
     {
     }
-<<<<<<< HEAD
-=======
+
     public function quanLyDiemDanh(){
         return view('modules.danhsachdiemdanh');
     }
     public function chiTietBuoiVang(){
         return view('modules.chitietbuoivang');
     }
-    
->>>>>>> 4069ce422a3d899a92665f498da8e02d8e5a9607
+
 }
