@@ -55,12 +55,31 @@ Route::group(['prefix' => 'quan-ly', 'middleware' => ['checkAdmin']], function (
     'uses' => 'Controller@training',
     ]
     );
+
      Route::get('quan-ly-diem-danh', ['as' => 'quan-ly-diem-danh', 'uses' => 'Controller@quanLyDiemDanh']);
      Route::get('chi-tiet-buoi-vang', ['as' => 'chi-tiet-buoi-vang', 'uses' => 'Controller@chiTietBuoiVang']);
     Route::get('quan-ly-mon-hoc', ['as' => 'gquan-ly-mon-hoc', 'uses' => 'Controller@GetquanLyMonHoc']);
     Route::post('quan-ly-mon-hoc', ['as' => 'pquan-ly-mon-hoc', 'uses' => 'Controller@PostquanLyMonHoc']);
     Route::get('updatemonhoc/{id}', ['as' => 'gupdatemh', 'uses' => 'Controller@Getupdatemonhoc']);
     Route::post('updatemonhoc/{id}', ['as' => 'pupdatemh', 'uses' => 'Controller@Postupdatemonhoc']);
+
+        Route::get('quan-ly-mon-hoc',['as'=>'gquan-ly-mon-hoc','uses'=>'Controller@GetquanLyMonHoc']);
+        Route::post('quan-ly-mon-hoc',['as'=>'pquan-ly-mon-hoc','uses'=>'Controller@PostquanLyMonHoc']);
+        Route::get('updatemonhoc/{id}',['as'=>'gupdatemh','uses'=>'Controller@Getupdatemonhoc']);
+        Route::post('updatemonhoc/{id}',['as'=>'pupdatemh','uses'=>'Controller@Postupdatemonhoc']);
+
+ 
+        Route::get('quan-ly-lop',['as'=>'gquan-ly-lop','uses'=>'Controller@GetquanLylop']);
+        Route::post('quan-ly-lop',['as'=>'pquan-ly-lop','uses'=>'Controller@PostquanLylop']);
+
+        Route::get('quan-ly-sinh-vien',['as'=>'quan-ly-sinh-vien','uses'=>'Controller@quanLySinhVien']);
+        //Route::get('quan-ly-lop',['as'=>'quan-ly-lop','uses'=>'Controller@quanLylop']);
+        Route::get('sinhvien','Controller@quanLySinhVien');
+
+        //route ajax
+        Route::post('ajaxdeletemonhoc',['as'=>'ajax_delete_monhoc','uses'=>'Controller@Delete_monhoc']);
+        Route::post('destroy_sinhvien',['as'=>'destroysinhvien','uses'=>'Controller@destroy_sinhvien']);
+ 
 
     Route::get('quan-ly-lop', ['as' => 'gquan-ly-lop', 'uses' => 'Controller@GetquanLylop']);
     Route::post('quan-ly-lop', ['as' => 'pquan-ly-lop', 'uses' => 'Controller@PostquanLylop']);

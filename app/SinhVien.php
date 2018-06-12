@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SinhVien extends Model
 {
     //
-    protected $table = 'sinhviens';
+    protected $table = 'sinh_viens';
     protected $fillable=['id','masv','hoten','gioitinh','malop'];
     public $timestamps=true;
     public function lop()
