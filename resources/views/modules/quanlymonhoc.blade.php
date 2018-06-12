@@ -23,15 +23,13 @@
 										<p class="text-danger">{{$errors->first('mamon')}}</p>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label>Tên môn</label>
-											<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon">
-											<p class="text-danger">{{$errors->first('tenmon')}}</p>
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Tên môn</label>
+										<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon">
+										<p class="text-danger">{{$errors->first('tenmon')}}</p>
 									</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-lg-6">
@@ -41,17 +39,15 @@
 										<p class="text-danger">{{$errors->first('sotinchi')}}</p>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label>Số tiết</label>
-											<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet">
-											<p class="text-danger">{{$errors->first('sotiet')}}</p>
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Số tiết</label>
+										<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet">
+										<p class="text-danger">{{$errors->first('sotiet')}}</p>
 									</div>
+								</div>
 							</div>
-							<div class="text-center">
+							<div class="text-right">
 								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle"></i> Thêm môn</button>
 							</div>
 						</form>

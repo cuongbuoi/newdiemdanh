@@ -16,7 +16,6 @@ Route::get('/',[
     'uses'=>'Controller@glogin'
 ]
 );
-
 Route::post('/',['as' => 'pdang-nhap','uses'=>'Controller@plogin']);
 Route::get('logout',['as'=>'logout','uses'=>'Controller@logout']);
 
