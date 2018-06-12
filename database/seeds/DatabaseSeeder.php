@@ -20,7 +20,7 @@ class seedAdmin extends Seeder
     public function run()
 	{
 		DB::table('admin')->insert([
-			['taikhoan'=>'kasai','password'=>bcrypt('2605')]
+			['taikhoan'=>'admin','password'=>bcrypt('123456')]
         ]);
 	}
 }
