@@ -19,7 +19,7 @@
               <i class="dropdown-icon fe fe-user"></i> Profile
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="{{'logout'}}">
               <i class="dropdown-icon fe fe-log-out"></i> Đăng xuất
             </a>
           </div>

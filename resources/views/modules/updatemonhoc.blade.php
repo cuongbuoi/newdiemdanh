@@ -7,7 +7,7 @@
 				<div class="card">
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
-						<h3 class="card-title text-uppercase">Thao tác</h3>
+						<h3 class="card-title text-uppercase">Sửa Thông Tin Môn Học</h3>
 						<div class="card-options">
 							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
 						</div>
@@ -15,14 +15,6 @@
 					<div class="card-body">
 						<form action="" method="post">
 							<input type="hidden" name="_token" value="{{csrf_token()}}">
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label>Mã môn</label>
-										<input type="text" class="form-control" placeholder="Nhập mã môn..." name="mamon">
-									</div>
-								</div>
-							</div>
 							<div class="row">
 									<div class="col-lg-6">
 										<div class="form-group">
@@ -48,7 +40,7 @@
 									</div>
 							</div>
 							<div class="text-center">
-								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle"></i> Thêm môn</button>
+								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle"></i> Cập nhật</button>
 							</div>
 						</form>
 					</div>
@@ -83,8 +75,8 @@
 										<td>{{$val->sotinchi}}</td>
 										<td>{{$val->sotiet}}</td>
 										<td class="text-right">
-											<a href="{{route('gupdatemh')}}" class="btn btn-warning" id="edit"><i class="fe fe-edit"></i></a>
-											{{-- <a href="#" class="btn btn-success"><i class="fe fe-edit"></i></a> --}}
+											<a href="#" class="btn btn-warning"><i class="fe fe-edit"></i></a>
+											<a href="#" class="btn btn-success"><i class="fe fe-edit"></i></a>
 										</td>
 									</tr>
 									@endforeach
@@ -98,8 +90,4 @@
 		</div>
 	</div>
 </div>
-
-<script>
-	
-</script>
 @endsection

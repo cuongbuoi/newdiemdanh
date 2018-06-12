@@ -37,19 +37,20 @@
           <div class="row">
             <div class="col col-login mx-auto">
               <form class="card" action="" method="post">
+              <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="card-body p-6">
                   <div class="card-title text-center">
                         <h1>Admin Login</h1>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Email address</label>
-                    <input type="text" class="form-control" placeholder="Nhập Username">
+                    <input type="text" class="form-control" name='taikhoan' placeholder="Nhập Username">
                   </div>
                   <div class="form-group">
                     <label class="form-label">
                       Password
                     </label>
-                    <input type="password" class="form-control" placeholder="Nhập Mật Khẩu">
+                    <input type="password" class="form-control" name='matkhau' placeholder="Nhập Mật Khẩu">
                   </div>
                   <div class="form-footer">
                     <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
