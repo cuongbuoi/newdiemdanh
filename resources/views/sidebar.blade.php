@@ -7,10 +7,10 @@
         <h5 class="text-center">Admin</h5>
     </div>
     <ul class="list-unstyled components">
-        <li @if(Request::segment(1)=="") class="active" @endif>
+        <li @if(Request::segment(2)=="trang-chu") class="active" @endif>
             <a href="{{route('trang-chu')}}"><i class="fe fe-user"></i> Điểm danh</a>
         </li>
-        <li @if(Request::segment(1)=="training-list" || Request::segment(1)=="training") class="active" @endif>
+        <li @if(Request::segment(2)=="training-list" || Request::segment(2)=="training") class="active" @endif>
             <a href="{{route('training-list')}}"><i class="fe fe-gitlab"></i> Training khuôn mặt</a>
         </li>
         <li>
