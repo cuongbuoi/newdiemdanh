@@ -6,10 +6,18 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 use Illuminate\Http\Request;
+use App\Http\Requests\MonhocRequest;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\LopRequest;
+
+
+
 use Auth;
 use App\admin;
 use App\monhoc;
+use App\Lop;
 
 use Carbon;
 class Controller extends BaseController
@@ -24,12 +32,12 @@ class Controller extends BaseController
     {
         if(Auth::guard('admin')->check())
         {
-            return redirect('trang-chu');
+            return redirect()->route('trang-chu');
         }
         else
             return view('login');
     }
-    public function plogin(Request $request)
+    public function plogin(LoginRequest $request)
     {
         // return $request->all();
         $auth= array('taikhoan'=>$request->taikhoan,'password'=>$request->matkhau);
@@ -55,11 +63,13 @@ class Controller extends BaseController
      public function training(){
     	return view('modules.training');
     }
+
+
     public function GetquanLyMonHoc(){
         $mh=monhoc::all();
     	return view('modules.quanlymonhoc',compact('mh'));
     }
-    public function PostquanLyMonHoc(Request $request)
+    public function PostquanLyMonHoc(MonhocRequest $request)
     {
         monhoc::insert([
             'mamon'=> $request->mamon,
@@ -69,17 +79,50 @@ class Controller extends BaseController
         ]);
         return redirect()->route('gquan-ly-mon-hoc')->with(['message'=>'Thêm thành công!']);
     }
-    public function Getupdatemonhoc()
+    public function Postupdatemonhoc(Request $request,$id)
+    {
+        monhoc::find($id)->update(['tenmon'=>$request->tenmon,'sotinchi'=>$request->sotinchi,'sotiet'=>$request->sotiet]);
+        return redirect()->route('gquan-ly-mon-hoc');
+    }
+    public function Getupdatemonhoc($id)
     {
         $mh=monhoc::all();
-        return view('modules.updatemonhoc',compact('mh'));
+        $up=monhoc::find($id);
+        if($up){
+            return view('modules.updatemonhoc',compact('mh','up'));
+        }
+        else{
+            return redirect()->route('gquan-ly-mon-hoc');
+        }
+       
+        
     }
-
+    public function Delete_monhoc(Request $request){
+        if($request->ajax()){
+            if(monhoc::find($request->id)->delete())
+                return 'ok';
+            else
+                return 'error';
+        }
+    }
+    public function GetquanLyLop(){
+        $lop=Lop::all();
+    	return view('modules.quanlylop',compact('lop'));
+    }
+    public function PostquanLyLop(LopRequest $request)
+    {
+        Lop::insert([
+            'malop'=> $request->malop,
+            'tenlop'=>$request->tenlop,
+        ]);
+        return redirect()->route('gquan-ly-lop')->with(['message'=>'Thêm thành công!']);
+    }
 
      public function quanLySinhVien(){
     	return view('modules.quanlysinhvien');
     }
-     public function quanLyLop(){
-    	return view('modules.quanlylop');
+    public function quanLyLop(){
+
     }
+    
 }

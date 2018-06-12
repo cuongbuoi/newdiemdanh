@@ -20,34 +20,34 @@
 									<div class="form-group">
 										<label>Mã môn</label>
 										<input type="text" class="form-control" placeholder="Nhập mã môn..." name="mamon">
+										<p class="text-danger">{{$errors->first('mamon')}}</p>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label>Tên môn</label>
-											<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon">
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Tên môn</label>
+										<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon">
+										<p class="text-danger">{{$errors->first('tenmon')}}</p>
 									</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Số tín chỉ</label>
 										<input type="text" class="form-control" placeholder="Nhập số tín chỉ..." name="sotinchi">
+										<p class="text-danger">{{$errors->first('sotinchi')}}</p>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Số tiết</label>
+										<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet">
+										<p class="text-danger">{{$errors->first('sotiet')}}</p>
 									</div>
 								</div>
 							</div>
-							<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label>Số tiết</label>
-											<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet">
-										</div>
-									</div>
-							</div>
-							<div class="text-center">
+							<div class="text-right">
 								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle"></i> Thêm môn</button>
 							</div>
 						</form>
@@ -79,12 +79,13 @@
 									@foreach($mh as $key=>$val)
 									<tr>
 										<td>{{$key+1}}</td>
+										<td hidden class='id'>{{$val->id}}</td>
 										<td>{{$val->tenmon}}</td>
 										<td>{{$val->sotinchi}}</td>
 										<td>{{$val->sotiet}}</td>
 										<td class="text-right">
-											<a href="{{route('gupdatemh')}}" class="btn btn-warning" id="edit"><i class="fe fe-edit"></i></a>
-											{{-- <a href="#" class="btn btn-success"><i class="fe fe-edit"></i></a> --}}
+											<a href="{{route('gupdatemh',$val->id)}}" class="btn btn-warning" id="edit"><i class="fe fe-edit"></i></a>
+											<button class="btn btn-danger delete"><i class="fe fe-trash"></i></button>
 										</td>
 									</tr>
 									@endforeach
@@ -100,6 +101,23 @@
 </div>
 
 <script>
+	require(['jquery'],function(){
+		$('.delete').click(function (e) { 
+			var t=$(this).closest('tr').find('.id').text()
+			$.ajax({
+				type: "post",
+				url: "{{route('ajax_delete_monhoc')}}",
+				data: {
+					'_token':"{{csrf_token()}}",
+					'id':t
+				},
 	
+				success: function (response) {
+					response=='ok'? location.reload():''
+				}
+			});
+			
+		});
+    });
 </script>
 @endsection
