@@ -101,7 +101,7 @@
 </div>
 
 <script>
-	require(['jquery'],function(){
+	
 		$('.delete').click(function (e) { 
 			var t=$(this).closest('tr').find('.id').text()
 			$.ajax({
@@ -118,6 +118,6 @@
 			});
 			
 		});
-    });
+  
 </script>
 @endsection

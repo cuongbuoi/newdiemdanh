@@ -35,11 +35,15 @@
 							<div class="form-group">
 								<label>Chọn lớp</label>
 								<select  id="" class="form-control">
-									<option value="">Lorem ipsum dolor sit amet.</option>
-									<option value="">Optio illo asperiores dignissimos! Laudantium.</option>
-									<option value="">At veritatis sunt officiis, nesciunt.</option>
+								@forelse($dslop as $lop)
+								<option value="{{ $lop->malop }}">{{ $lop->tenlop }}</option>
+								@empty
+								<option value="">Chưa có lớp </option>
+								@endforelse
+									
 								</select>
 							</div>
+							
 							<div class="form-group">
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" multiple>

@@ -87,6 +87,7 @@
 									@foreach($data as $key=>$val)
 									<tr>
 										<td>{{$key+1}}</td>
+										<td>{{$val->masv}}</td>
 										<td hidden class='id'>{{$val->id}}</td>
 										<td>{{$val->masv}}</td>
 										<td>{{$val->hoten}}</td>
@@ -107,7 +108,7 @@
 	</div>
 </div>
 <script>
-	require(['jquery'],function(){
+	//require(['jquery'],function(){
 		$('.delete').click(function (e) { 
 			
 			var t=$(this).closest('tr').find('.id').text()
@@ -134,6 +135,6 @@
 				location.href=location.pathname+"?query="+this.value
 			
 		});
-    });
+  //  });
 </script>
 @endsection
