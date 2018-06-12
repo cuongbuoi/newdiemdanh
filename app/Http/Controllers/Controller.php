@@ -15,6 +15,7 @@ use App\monhoc;
 use App\Lop;
 use App\SinhVien;
 use App\Classes\My_Face;
+use Carbon;
 
 class Controller extends BaseController
 {
@@ -190,12 +191,48 @@ class Controller extends BaseController
         return redirect()->route('gquan-ly-lop')->with(['message' => 'Thêm thành công!']);
     }
 
+<<<<<<< HEAD
     public function quanLySinhVien()
     {
         return view('modules.quanlysinhvien');
+=======
+     public function quanLySinhVien(Request $request){
+        if($request->get('query') && $request->get('query')!='')
+        {
+            $data=SinhVien::where('malop',$request->get('query'))->get();
+            $query=$request->get('query');
+           
+        }
+        else{
+            $data=SinhVien::all();
+            $query='';
+          
+        }
+        $lop=Lop::all();
+        return view('modules.quanlysinhvien',compact('data','lop','query'));
+    }
+    public function destroy_sinhvien(Request $request)
+    {
+        if($request->ajax())
+        {
+            SinhVien::find($request->id)->delete();
+            return 'ok';
+        }
+       
+>>>>>>> 4069ce422a3d899a92665f498da8e02d8e5a9607
     }
 
     public function quanLyLop()
     {
     }
+<<<<<<< HEAD
+=======
+    public function quanLyDiemDanh(){
+        return view('modules.danhsachdiemdanh');
+    }
+    public function chiTietBuoiVang(){
+        return view('modules.chitietbuoivang');
+    }
+    
+>>>>>>> 4069ce422a3d899a92665f498da8e02d8e5a9607
 }

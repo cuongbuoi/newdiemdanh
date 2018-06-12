@@ -64,7 +64,7 @@
 										<th>Môn học</th>
 										<th>Số tín chỉ</th>
 										<th>Số tiết</th>
-										<th class="text-right">Chức năng</th>
+										{{-- <th class="text-right">Chức năng</th> --}}
 									</tr>
 								</thead>
 								<tbody>
@@ -74,10 +74,6 @@
 										<td>{{$val->tenmon}}</td>
 										<td>{{$val->sotinchi}}</td>
 										<td>{{$val->sotiet}}</td>
-										<td class="text-right">
-											<a href="#" class="btn btn-warning"><i class="fe fe-edit"></i></a>
-											<a href="#" class="btn btn-success"><i class="fe fe-edit"></i></a>
-										</td>
 									</tr>
 									@endforeach
 
