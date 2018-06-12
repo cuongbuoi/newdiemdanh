@@ -56,6 +56,11 @@
                     <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
                   </div>
                 </div>
+                @if(session()->has('errormessage'))
+    <div class="alert alert-danger text-center">
+        {{ session()->get('errormessage') }}
+    </div>
+@endif
               </form>
             </div>
           </div>

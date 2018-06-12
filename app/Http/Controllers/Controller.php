@@ -24,7 +24,7 @@ class Controller extends BaseController
     {
         if(Auth::guard('admin')->check())
         {
-            return redirect('quan-ly-sinh-vien');
+            return redirect('trang-chu');
         }
         else
             return view('login');
@@ -35,7 +35,7 @@ class Controller extends BaseController
         $auth= array('taikhoan'=>$request->taikhoan,'password'=>$request->matkhau);
         if(Auth::guard('admin')->attempt($auth,false))
 			{
-                return redirect()->route('quan-ly-sinh-vien');	
+                return redirect()->route('trang-chu');	
             }
 		else
 			{
