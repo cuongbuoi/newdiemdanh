@@ -18,7 +18,7 @@ use Auth;
 use App\admin;
 use App\monhoc;
 use App\Lop;
-
+use App\SinhVien;
 use Carbon;
 class Controller extends BaseController
 {
@@ -118,8 +118,29 @@ class Controller extends BaseController
         return redirect()->route('gquan-ly-lop')->with(['message'=>'Thêm thành công!']);
     }
 
-     public function quanLySinhVien(){
-    	return view('modules.quanlysinhvien');
+     public function quanLySinhVien(Request $request){
+        if($request->get('query') && $request->get('query')!='')
+        {
+            $data=SinhVien::where('malop',$request->get('query'))->get();
+            $query=$request->get('query');
+           
+        }
+        else{
+            $data=SinhVien::all();
+            $query='';
+          
+        }
+        $lop=Lop::all();
+        return view('modules.quanlysinhvien',compact('data','lop','query'));
+    }
+    public function destroy_sinhvien(Request $request)
+    {
+        if($request->ajax())
+        {
+            SinhVien::find($request->id)->delete();
+            return 'ok';
+        }
+       
     }
     public function quanLyLop(){
 

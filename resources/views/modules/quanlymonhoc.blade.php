@@ -19,14 +19,14 @@
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Mã môn</label>
-										<input type="text" class="form-control" placeholder="Nhập mã môn..." name="mamon">
+										<input type="text" class="form-control" placeholder="Nhập mã môn..." name="mamon" value="{{old('mamon')}}">
 										<p class="text-danger">{{$errors->first('mamon')}}</p>
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Tên môn</label>
-										<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon">
+										<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon" value="{{old('tenmon')}}">
 										<p class="text-danger">{{$errors->first('tenmon')}}</p>
 									</div>
 								</div>
@@ -35,14 +35,14 @@
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Số tín chỉ</label>
-										<input type="text" class="form-control" placeholder="Nhập số tín chỉ..." name="sotinchi">
+										<input type="text" class="form-control" placeholder="Nhập số tín chỉ..." name="sotinchi" value="{{old('sotinchi')}}">
 										<p class="text-danger">{{$errors->first('sotinchi')}}</p>
 									</div>
 								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Số tiết</label>
-										<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet">
+										<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet" value="{{old('sotiet')}}">
 										<p class="text-danger">{{$errors->first('sotiet')}}</p>
 									</div>
 								</div>

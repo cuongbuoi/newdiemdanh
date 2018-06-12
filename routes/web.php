@@ -48,9 +48,11 @@ Route::group(['prefix' => 'quan-ly','middleware' => ['checkAdmin']], function ()
 
         Route::get('quan-ly-sinh-vien',['as'=>'quan-ly-sinh-vien','uses'=>'Controller@quanLySinhVien']);
         //Route::get('quan-ly-lop',['as'=>'quan-ly-lop','uses'=>'Controller@quanLylop']);
+        Route::get('sinhvien','Controller@quanLySinhVien');
 
         //route ajax
         Route::post('ajaxdeletemonhoc',['as'=>'ajax_delete_monhoc','uses'=>'Controller@Delete_monhoc']);
+        Route::post('destroy_sinhvien',['as'=>'destroysinhvien','uses'=>'Controller@destroy_sinhvien']);
  
 
     });
