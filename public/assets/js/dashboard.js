@@ -9,9 +9,9 @@ shim: {
 'core': ['bootstrap', 'jquery'],
 },
 paths: {
-'core': '/assets/js/core',
-'jquery': '/assets/js/vendors/jquery-3.2.1.min',
-'bootstrap': '../assets/js/vendors/bootstrap.bundle.min',
+// 'core': '../../assets/js/core',
+// 'jquery': '../../assets/js/vendors/jquery-3.2.1.min',
+// 'bootstrap': '../../assets/js/vendors/bootstrap.bundle.min',
 'sparkline': 'assets/js/vendors/jquery.sparkline.min',
 'selectize': 'assets/js/vendors/selectize.min',
 'tablesorter': 'assets/js/vendors/jquery.tablesorter.min',
@@ -19,6 +19,7 @@ paths: {
 'vector-map-de': 'assets/js/vendors/jquery-jvectormap-de-merc',
 'vector-map-world': 'assets/js/vendors/jquery-jvectormap-world-mill',
 'circle-progress': 'assets/js/vendors/circle-progress.min',
+// 'file-input': '../../assets/js/fileinput.min'
 }
 });
 window.tabler = {

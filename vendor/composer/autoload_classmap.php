@@ -21,6 +21,9 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Middleware\\checkAdmin' => $baseDir . '/app/Http/Middleware/checkAdmin.php',
+    'App\\Http\\Requests\\LoginRequest' => $baseDir . '/app/Http/Requests/LoginRequest.php',
+    'App\\Http\\Requests\\LopRequest' => $baseDir . '/app/Http/Requests/LopRequest.php',
+    'App\\Http\\Requests\\MonhocRequest' => $baseDir . '/app/Http/Requests/MonhocRequest.php',
     'App\\Lop' => $baseDir . '/app/Lop.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
@@ -3418,4 +3421,5 @@ return array(
     'phpDocumentor\\Reflection\\Types\\This' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/This.php',
     'phpDocumentor\\Reflection\\Types\\Void_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Void_.php',
     'seedAdmin' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'sinhvien' => $baseDir . '/database/seeds/sinhvien.php',
 );

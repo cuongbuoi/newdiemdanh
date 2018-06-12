@@ -355,6 +355,9 @@ class ComposerStaticInitcd8c4a9d6d7461a03df9ff2f3c2cf804
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\checkAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/checkAdmin.php',
+        'App\\Http\\Requests\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/LoginRequest.php',
+        'App\\Http\\Requests\\LopRequest' => __DIR__ . '/../..' . '/app/Http/Requests/LopRequest.php',
+        'App\\Http\\Requests\\MonhocRequest' => __DIR__ . '/../..' . '/app/Http/Requests/MonhocRequest.php',
         'App\\Lop' => __DIR__ . '/../..' . '/app/Lop.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -3752,6 +3755,7 @@ class ComposerStaticInitcd8c4a9d6d7461a03df9ff2f3c2cf804
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
         'seedAdmin' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
+        'sinhvien' => __DIR__ . '/../..' . '/database/seeds/sinhvien.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

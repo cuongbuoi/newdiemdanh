@@ -46,6 +46,7 @@ class My_Face
     {
         // to get base64
         // $image_data = base64_encode(file_get_contents($args["image_path"]));
+        $image = base64_encode(file_get_contents($image));
         $data = $this->action('https://api.kairos.com/enroll',
         [
         'image' => $image,
@@ -59,6 +60,7 @@ class My_Face
 
     public function recognize($image)
     {
+        $image = base64_encode(file_get_contents($image));
         $data = $this->action('https://api.kairos.com/recognize',
         [
         'image' => $image,
