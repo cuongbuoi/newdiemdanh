@@ -13,10 +13,7 @@
         <li @if(Request::segment(1)=="training-list" || Request::segment(1)=="training") class="active" @endif>
             <a href="{{route('training-list')}}"><i class="fe fe-gitlab"></i> Training khuôn mặt</a>
         </li>
-        <li @if(Request::segment(1)=="training-list" || Request::segment(1)=="training") class="active" @endif>
-                <a href="{{route('logout')}}"><i class="fe fe-gitlab"></i> Đăng xuất</a>
-            </li>
-        <li @if(Request::segment(1)=='quan-ly') class="active" @endif>
+        <li>
             <a href="#quanly" data-toggle="collapse" aria-expanded="false"><i class="fe fe-eye"></i> Quản lý<i class="dropdown-toggle float-right"></i></a>
             <ul @if(Request::segment(2)=='quan-ly-lop'||Request::segment(2)=='quan-ly-mon-hoc'||Request::segment(2)=='quan-ly-sinh-vien') class="collapsed list-unstyled" @endif  id="quanly" class="collapse list-unstyled">
                 <li @if(Request::segment(2)=='quan-ly-mon-hoc') class="active" @endif><a href="{{route('gquan-ly-mon-hoc')}}">Danh sách môn học</a></li>
