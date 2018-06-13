@@ -13,11 +13,17 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<div class="img-detection">
-							<img class="rounded" width="100%" src="{!!asset('assets/images/faces.png') !!}" alt="">
-							<!-- <span class="detected">Name</span>
-							<span class="undetected">Name</span> -->
+						<div class="dimmer">
+							<div class="loader"></div>
+							<div class="dimmer-content">
+								<div class="img-detection">
+									<img class="rounded" width="100%" src="{!!asset('assets/images/faces.png') !!}" alt="">
+									<!-- <span class="detected">Name</span>
+									<span class="undetected">Name</span> -->
+								</div>
+							</div>
 						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -33,12 +39,12 @@
 					<div class="card-body">
 						
 							<div class="form-group">
-								<label>Chọn lớp</label>
-								<select  id="lophoc" class="form-control">
-								@forelse($dslop as $lop)
-								<option value="{{ $lop->malop }}">{{ $lop->tenlop }}</option>
+								<label>Chọn Môn</label>
+								<select  id="monhoc" class="form-control">
+								@forelse($dsmon as $mon)
+								<option value="{{ $mon->mamon }}" selected>{{ $mon->tenmon }}</option>
 								@empty
-								<option value="">Chưa có lớp </option>
+								<option value="">Chưa có môn </option>
 								@endforelse
 									
 								</select>
@@ -102,6 +108,7 @@ $(document).ready(function () {
 	
 	$("#data").submit(function(e) {
 	remove()
+	
     e.preventDefault();  
 	// console.log($("#lophoc").val());  
     var formData = new FormData(this);
@@ -111,13 +118,17 @@ $(document).ready(function () {
           }
           reader.readAsDataURL(formData.get('fileanh'));
 	var toado = detect_face();
-	formData.append('malop',$("#lophoc").val());
+	formData.append('monhoc',$("#monhoc").val());
 	formData.append('_token',"{{csrf_token()}}");
     $.ajax({
         url: '{{ route('diemdanh') }}',
         type: 'POST',
         data: formData,
+        beforeSend: function(){
+     		$(".dimmer").addClass('active');
+   		},
         success: function (data) {
+        	$(".dimmer").removeClass('active');
             console.log(data);
 			
 			$.each(data['images'],function(index,val1){

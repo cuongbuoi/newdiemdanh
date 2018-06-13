@@ -15,7 +15,7 @@ use App\monhoc;
 use App\Lop;
 use App\SinhVien;
 use App\Classes\My_Face;
-use Carbon;
+use Illuminate\Support\Carbon;
 use DB;
 use App\diemdanh;
 
@@ -25,9 +25,9 @@ class Controller extends BaseController
 
     public function index()
     {
-        $dslop = Lop::all();
+        $dsmon = monhoc::all();
 
-        return view('modules.indexcontent', compact('dslop'));
+        return view('modules.indexcontent', compact('dsmon'));
     }
 
     public function glogin()
@@ -133,10 +133,39 @@ class Controller extends BaseController
     public function Diem_danh(Request $request){
       if($request->ajax())
       {
+        
         if($request->has('fileanh'))
         {
+            $today = Carbon::today()->toDateString();
             $dmm = new My_Face();
-            return response()->json($dmm->recognize($request->file('fileanh')));
+            $data = $dmm->recognize($request->file('fileanh'));
+            // dd($data);
+            if(isset($data) && $request->get('monhoc') != '')
+            {
+                 foreach($data as $val)
+                 {
+                    foreach($val as $lol)
+                    {
+                        // dd($lol->transaction->status);
+                       if($lol->transaction->status === 'success')
+                       {
+                           try 
+                            {
+                                 diemdanh::create(['masv' => $lol->transaction->subject_id,'mamon'=>$request->get('monhoc'),'buoivang'=>$today]);
+                            }
+                            catch(\Illuminate\Database\QueryException $e){
+    
+                            }
+                           
+
+                       }
+                    }
+                 }
+                  return response()->json($data);
+
+            }
+           
+            
         }
       }
     }

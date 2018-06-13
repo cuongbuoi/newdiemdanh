@@ -63,7 +63,7 @@
 										<th>STT</th>
 										<th>MSSV</th>
 										<th>Tên sinh viên</th>
-										<th class="text-center">Số buổi vắng</th>
+										<th class="text-center">Số buổi có mặt</th>
 										<th class="text-right">Chức năng</th>
 									</tr>
 								</thead>

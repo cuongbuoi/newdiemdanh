@@ -9,6 +9,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // $this->call('seedAdmin');
+        // $this->call('seedlop');
         $this->call('seedsinhvien');
     }
 }
@@ -42,7 +44,8 @@ class seedsinhvien extends Seeder
             // ['masv' => '15c4802020026', 'hoten' => 'Ngô Minh Thư', 'gioitinh' => 'nữ', 'malop' => 'HTTT'],
             // ['masv' => '15c4802020025', 'hoten' => 'Phan Minh Đại', 'gioitinh' => 'nữ', 'malop' => 'HTTT'],
             // ['masv' => '15c4802020024', 'hoten' => 'Dư Thanh Hiền', 'gioitinh' => 'nữ', 'malop' => 'HTTT'],
-            ['masv' => '15c4802020023', 'hoten' => 'Diễm Võ', 'gioitinh' => 'nữ', 'malop' => 'HTTT']
+            // ['masv' => '15c4802020023', 'hoten' => 'Diễm Võ', 'gioitinh' => 'nữ', 'malop' => 'HTTT'],
+            ['masv' => '15c4802020022', 'hoten' => 'Trương Nhi', 'gioitinh' => 'nữ', 'malop' => 'HTTT']
         ]);
     }
 }

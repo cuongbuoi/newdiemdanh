@@ -23,7 +23,7 @@ class CreateDiemdanhsTable extends Migration
             $table->foreign('mamon')
             ->references('mamon')->on('monhocs')
             ->onDelete('cascade');
-            $table->primary(['masv', 'mamon']);
+            $table->primary(['masv', 'mamon','buoivang']);
             $table->timestamps();
         });
     }
