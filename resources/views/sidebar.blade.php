@@ -2,7 +2,7 @@
 <nav id="sidebar">
     <div class="profile">
         <div class="d-flex justify-content-center py-4">
-                <span class="avatar avatar-xxl" style="background-image: url({!!asset('demo/faces/female/25.jpg') !!}"></span>
+                <span class="avatar avatar-xxl" style="background-image: url({!!asset('assets/images/thanos.png') !!}"></span>
         </div>
         <h5 class="text-center">Admin</h5>
     </div>

@@ -46,13 +46,14 @@ table th {
     position: relative; }
   .img-detection .detected {
     position: absolute;
-	border-radius:3px;
-    border: 2px solid #41ff00; }
-
+    border: 2px solid #41ff00;
+    border-radius: 3px;
+    opacity: 0.5; }
   .img-detection .undetected {
     position: absolute;
-	border-radius:3px;
-    border: 2px solid #c70000;}
+    border: 2px solid #c70000;
+    border-radius: 3px;
+    opacity: 0.5; }
 
 .img-training {
   background: url(../images/none.png) no-repeat;

@@ -17,7 +17,7 @@
 							<div class="loader"></div>
 							<div class="dimmer-content">
 								<div class="img-detection">
-									<img class="rounded" width="100%" src="{!!asset('assets/images/faces.png') !!}" alt="">
+									<img class="rounded" width="100%" src="{!!asset('assets/images/cc.png') !!}" alt="">
 									<!-- <span class="detected">Name</span>
 									<span class="undetected">Name</span> -->
 								</div>
