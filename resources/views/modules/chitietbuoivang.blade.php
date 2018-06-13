@@ -25,15 +25,18 @@
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($data as $key=>$val)
 									<tr>
-										<td>1</td>
-										<td>15C4801040046</td>
-										<td>Ngô Minh Thư</td>
-										<td class="text-center">20/06/2018</td>
+										<td hidden class='mamon'>{{ $val->mamon }}</td>
+										<td>{{ $key+1 }}</td>
+										<td class='masv'>{{ $val->masv }}</td>
+										<td>{{ $val->hoten }}</td>
+										<td class="text-center buoivang">{{ $val->buoivang }}</td>
 										<td class="text-right">
-											<a href="#" class="btn btn-danger"><i class="fe fe-trash"></i> Xóa</a>
+											<a class="btn btn-danger delete"><i class="fe fe-trash"></i> Xóa</a>
 										</td>
 									</tr>
+									@endforeach
 
 								</tbody>
 							</table>
@@ -44,4 +47,28 @@
 		</div>
 	</div>
 </div>
+<script>
+	$('.delete').click(function (e) { 
+		var mamon=$(this).closest('tr').find('.mamon').text()
+		var masv=$(this).closest('tr').find('.masv').text()
+		var buoivang=$(this).closest('tr').find('.buoivang').text()
+		console.log(mamon)
+		$.ajax({
+			type: "post",
+			url: "{{ route('Destroy_diemdanh') }}",
+			data: {
+				"_token":"{{ csrf_token() }}",
+				'mamon':mamon,
+				'masv':masv,
+				'buoivang':buoivang
+			},
+			success: function (response) {
+				if(response=='ok')
+					location.reload()
+			
+			}
+		});
+		
+	});
+</script>
 @endsection

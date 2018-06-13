@@ -13,15 +13,15 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<form action="" method="post">
+						<form action="" method="get">
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Chọn lớp</label>
-										<select  id="" class="form-control">
-											<option value="">HTTT</option>
-											<option value="">CNPM</option>
-											<option value="">CNM</option>
+										<select  id="lop" class="form-control" name="lop">
+											@foreach($lop as $val)
+											<option value="{{ $val->malop }}">{{ $val->tenlop }}</option>
+											@endforeach
 										</select>
 										<p class="text-danger">{{$errors->first('malop')}}</p>
 									</div>
@@ -29,17 +29,17 @@
 								<div class="col-lg-6">
 										<div class="form-group">
 											<label>Chọn môn</label>
-											<select  id="" class="form-control">
-												<option value="">HTTT</option>
-												<option value="">CNPM</option>
-												<option value="">CNM</option>
+											<select  id="mon" class="form-control" name="mon">
+												@foreach($monhoc as $val)
+												<option value="{{ $val->mamon }}">{{ $val->tenmon }}</option>
+												@endforeach
 											</select>
 											<p class="text-danger">{{$errors->first('tenlop')}}</p>
 										</div>
 								</div>
 							</div>
 							<div class="text-right">
-								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle"></i> Thêm danh sách lớp</button>
+								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle view"></i> Xem</button>
 							</div>
 						</form>
 					</div>
@@ -54,6 +54,7 @@
 							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
 						</div>
 					</div>
+					@if(count($data)>0)
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-hover">
@@ -67,23 +68,32 @@
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($data as $key=> $val)
 									<tr>
-										<td>1</td>
-										<td>15C4801040046</td>
-										<td>Ngô Minh Thư</td>
-										<td class="text-center">2</td>
+										<td>{{ $key+1 }}</td>
+										<td>{{ $val->masv }}</td>
+										<td>{{ $val->hoten }}</td>
+										<td class="text-center">{{ $val->bv }}</td>
 										<td class="text-right">
-											<a href="{{route('chi-tiet-buoi-vang')}}" class="btn btn-success"><i class="fe fe-eye"></i> Xem chi tiết</a>
+											<a href="{{ url('quan-ly/chi-tiet-buoi-vang/'.$val->masv.'/'.$val->mamon) }}" class="btn btn-success"><i class="fe fe-eye"></i> Xem chi tiết</a>
 										</td>
 									</tr>
+									@endforeach
 
 								</tbody>
 							</table>
 						</div>
 					</div>
+					@endif
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+	$('.view').click(function (e) { 
+		console.log($('#lop').val())
+		
+	});
+</script>
 @endsection

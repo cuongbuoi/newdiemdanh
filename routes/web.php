@@ -60,7 +60,7 @@ Route::group(['prefix' => 'quan-ly', 'middleware' => ['checkAdmin']], function (
 
 
      Route::get('quan-ly-diem-danh', ['as' => 'quan-ly-diem-danh', 'uses' => 'Controller@quanLyDiemDanh']);
-     Route::get('chi-tiet-buoi-vang', ['as' => 'chi-tiet-buoi-vang', 'uses' => 'Controller@chiTietBuoiVang']);
+     Route::get('chi-tiet-buoi-vang/{masv}/{mon}', ['as' => 'chi-tiet-buoi-vang', 'uses' => 'Controller@chiTietBuoiVang']);
 
     Route::get('quan-ly-mon-hoc', ['as' => 'gquan-ly-mon-hoc', 'uses' => 'Controller@GetquanLyMonHoc']);
     Route::post('quan-ly-mon-hoc', ['as' => 'pquan-ly-mon-hoc', 'uses' => 'Controller@PostquanLyMonHoc']);
@@ -90,6 +90,7 @@ Route::group(['prefix' => 'quan-ly', 'middleware' => ['checkAdmin']], function (
         Route::post('destroy_lop',['as'=>'destroylop','uses'=>'Controller@destroy_lop']);
         Route::post('train_data_image/{id}', ['as' => 'traindata', 'uses' => 'Controller@Train_data_image']);
         Route::post('diem-danh',['as' => 'diemdanh', 'uses' => 'Controller@Diem_danh']);
+        Route::post('Destroy_diemdanh',['as'=>'Destroy_diemdanh','uses'=>'Controller@Destroy_diemdanh']);
     //Route::get('quan-ly-lop',['as'=>'quan-ly-lop','uses'=>'Controller@quanLylop']);
 
 });
