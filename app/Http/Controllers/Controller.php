@@ -16,6 +16,8 @@ use App\Lop;
 use App\SinhVien;
 use App\Classes\My_Face;
 use Carbon;
+use DB;
+use App\diemdanh;
 
 class Controller extends BaseController
 {
@@ -234,11 +236,35 @@ class Controller extends BaseController
     {
     }
 
-    public function quanLyDiemDanh(){
-        return view('modules.danhsachdiemdanh');
+    public function quanLyDiemDanh(Request $request){
+      
+        if($request->get('lop')!='' && $request->get('mon')!=''){
+            $malop=$request->get('lop');
+            $mamom=$request->get('mon');
+            $data=SinhVien::join('diemdanhs','sinh_viens.masv','=','diemdanhs.masv')
+            ->select('diemdanhs.masv','hoten','mamon',DB::raw('count(buoivang) as bv'))
+            ->groupBy('diemdanhs.masv','hoten','mamon')->where('malop',$malop)->where('mamon',$mamom)->get();
+           
+        }
+        else
+        {
+            $data=[];
+        }
+        $monhoc=monhoc::all();
+        $lop=Lop::all();
+        //dd($data);
+        return view('modules.danhsachdiemdanh',compact('monhoc','lop','data'));
     }
-    public function chiTietBuoiVang(){
-        return view('modules.chitietbuoivang');
+    public function chiTietBuoiVang($masv,$mon){
+        $data=diemdanh::join('sinh_viens','diemdanhs.masv','=','sinh_viens.masv')->where('diemdanhs.masv',$masv)->where('mamon',$mon)->get();
+        if(count($data)>0)
+        {
+            return view('modules.chitietbuoivang',compact('data'));
+        }
+        else{
+            return redirect()->route('quan-ly-diem-danh');
+        }
+  
     }
     public function Post_themsinhvien(Request $request){
         try{
@@ -288,6 +314,18 @@ class Controller extends BaseController
             'tenlop'=>$request->tenlop
         ]);
         return redirect()->route('gquan-ly-lop');
+    }
+    public function Destroy_diemdanh(Request $request){
+        if($request->ajax())
+        {
+            //return $request->masv;
+            $dd=diemdanh::where('masv',$request->masv)->where('mamon',$request->mamon)->where('buoivang',$request->buoivang)->delete();
+            if($dd)
+
+                return 'ok';
+            else
+                return 'error';
+        }
     }
     
 }
