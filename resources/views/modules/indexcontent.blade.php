@@ -31,10 +31,10 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<form>
+						
 							<div class="form-group">
 								<label>Chọn lớp</label>
-								<select  id="" class="form-control">
+								<select  id="lophoc" class="form-control">
 								@forelse($dslop as $lop)
 								<option value="{{ $lop->malop }}">{{ $lop->tenlop }}</option>
 								@empty
@@ -43,15 +43,15 @@
 									
 								</select>
 							</div>
-							
+							<form id="data" method="post" enctype="multipart/form-data">
 							<div class="form-group">
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" multiple>
+									<input type="file" class="custom-file-input" onchange="read(this)" name="fileanh">
 									<label class="custom-file-label">Chọn ảnh</label>
 								</div>
 							</div>
 							<div class="text-right">
-								<button class="btn btn-primary"><i class="fe fe-check"></i> Nạp</button>
+								<button class="btn btn-primary" type="submit"><i class="fe fe-check"></i> Điểm Danh</button>
 							</div>
 						</form>
 					</div>
@@ -60,4 +60,46 @@
 		</div>
 	</div>
 </div>
+<script>
+function read(input){
+	if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.rounded')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+}
+$(document).ready(function () {
+	// $("#anhup").change(function(){
+	// 	$(".rounded").attr('src',formData.get('fileanh'))
+	// })
+	$("#data").submit(function(e) {
+    e.preventDefault();  
+	// console.log($("#lophoc").val());  
+    var formData = new FormData(this);
+	var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#img-detection').html('<img src="'+formData.get('fileanh')+'">');
+          }
+          reader.readAsDataURL(formData.get('fileanh'));
+	formData.append('malop',$("#lophoc").val());
+	formData.append('_token',"{{csrf_token()}}");
+    $.ajax({
+        url: '{{ route('diemdanh') }}',
+        type: 'POST',
+        data: formData,
+        success: function (data) {
+            console.log('data');
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+});
+});
+</script>
 @endsection

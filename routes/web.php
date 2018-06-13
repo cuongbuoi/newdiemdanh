@@ -19,8 +19,8 @@ Route::get('/test', function () {
     // echo $image;
     // die();
     $a = new My_Face();
-    dd($a->view());
-    // dd($a->recognize('https://scontent-sin6-2.xx.fbcdn.net/v/t1.15752-9/35078604_1216569385145738_2849228519018332160_n.jpg?_nc_cat=0&_nc_eui2=AeGAhNLSzDoDS6iRcMXgFE1NDr6_zwMz7qEwfQiOuKYVr5CHrk-gPZbqnoBI3KqtjJMNs9yKBGm8Fmt68QEtNdVotA48WjwjONIxMcGqaQXVcA&oh=43bd4bb16e77a703531145b3c0fe5e88&oe=5BBF0CFE'));
+    // dd($a->view());
+    dd($a->recognize('https://scontent.fvca1-1.fna.fbcdn.net/v/t1.0-9/11880378_500406640123413_6897335525622665309_n.jpg?_nc_cat=0&oh=ce4a397cbd8477c9f8d802d006f16034&oe=5B7C104C'));
 });
 Route::get(
     '/',
@@ -88,6 +88,8 @@ Route::group(['prefix' => 'quan-ly', 'middleware' => ['checkAdmin']], function (
         Route::post('ajaxdeletemonhoc',['as'=>'ajax_delete_monhoc','uses'=>'Controller@Delete_monhoc']);
         Route::post('destroy_sinhvien',['as'=>'destroysinhvien','uses'=>'Controller@destroy_sinhvien']);
         Route::post('destroy_lop',['as'=>'destroylop','uses'=>'Controller@destroy_lop']);
+        Route::post('train_data_image/{id}', ['as' => 'traindata', 'uses' => 'Controller@Train_data_image']);
+        Route::post('diem-danh',['as' => 'diemdanh', 'uses' => 'Controller@Diem_danh']);
     //Route::get('quan-ly-lop',['as'=>'quan-ly-lop','uses'=>'Controller@quanLylop']);
 
 });

@@ -119,11 +119,24 @@ class Controller extends BaseController
 
     public function training($mssv)
     {
+        
         if (!empty($mssv)) {
             $sinhvien = SinhVien::where('masv', $mssv)->get()[0];
         }
 
         return view('modules.training', compact('sinhvien','mssv'));
+    }
+
+
+    public function Diem_danh(Request $request){
+      if($request->ajax())
+      {
+        if($request->has('fileanh'))
+        {
+            $dmm = new My_Face();
+            return response()->json($dmm->recognize($request->file('fileanh')));
+        }
+      }
     }
 
     public function GetquanLyMonHoc()
