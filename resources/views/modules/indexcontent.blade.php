@@ -15,8 +15,8 @@
 					<div class="card-body">
 						<div class="img-detection">
 							<img class="rounded" width="100%" src="{!!asset('assets/images/faces.png') !!}" alt="">
-							<span class="detected">Name</span>
-							<span class="undetected">Name</span>
+							<!-- <span class="detected">Name</span>
+							<span class="undetected">Name</span> -->
 						</div>
 					</div>
 				</div>
@@ -61,7 +61,12 @@
 	</div>
 </div>
 <script>
+function remove(){
+	$('.detected').remove();
+	$('.undetected').remove();
+}
 function read(input){
+	remove()
 	if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
@@ -72,12 +77,31 @@ function read(input){
 
                 reader.readAsDataURL(input.files[0]);
             }
+
+
+}
+
+
+function detect_face()
+{
+	var image = new Image();
+	image.src = $('.rounded').attr("src");
+	var nwidth = image.naturalWidth;
+	var nheight = image.naturalHeight;
+	var width = Math.round($('.rounded').width());
+	var height = Math.round($('.rounded').height());
+	console.log(width + ':' + height +'-' +nwidth +":" +nheight);
+
+	return {"nwdith":nwidth,'nheight':nheight,"width":width,"height":height};
+
 }
 $(document).ready(function () {
 	// $("#anhup").change(function(){
 	// 	$(".rounded").attr('src',formData.get('fileanh'))
 	// })
+	
 	$("#data").submit(function(e) {
+	remove()
     e.preventDefault();  
 	// console.log($("#lophoc").val());  
     var formData = new FormData(this);
@@ -86,6 +110,7 @@ $(document).ready(function () {
               $('#img-detection').html('<img src="'+formData.get('fileanh')+'">');
           }
           reader.readAsDataURL(formData.get('fileanh'));
+	var toado = detect_face();
 	formData.append('malop',$("#lophoc").val());
 	formData.append('_token',"{{csrf_token()}}");
     $.ajax({
@@ -93,7 +118,47 @@ $(document).ready(function () {
         type: 'POST',
         data: formData,
         success: function (data) {
-            console.log('data');
+            console.log(data);
+			
+			$.each(data['images'],function(index,val1){
+				
+					if('transaction' in val1){
+						var left = Math.round(val1['transaction'].topLeftX * toado.width / toado.nwdith);
+						var top = Math.round((val1['transaction'].topLeftY * toado.height) / toado.nheight);
+						var width = val1['transaction'].width * toado.width / toado.nwdith;
+						var height = val1['transaction'].height * toado.height / toado.nheight;
+						console.log(val1['transaction'].topLeftX)
+						console.log(left + '::' + top + '::'+width+'::'+height)
+
+						if(val1['transaction'].status === 'success')
+						{
+							$('<div>', {
+          'class':'detected',
+          'css': {
+            'position': 'absolute',
+            'left':   left + 'px',
+            'top':    top + 'px',
+            'width':  width + 'px',
+            'height': height + 'px'
+          }
+        }).insertAfter($('.rounded'))
+						}
+						else{
+							$('<div>', {
+          'class':'undetected',
+          'css': {
+            'position': 'absolute',
+            'left':   left + 'px',
+            'top':    top + 'px',
+            'width':  width + 'px',
+            'height': height + 'px'
+          }
+        }).insertAfter($('.rounded'))
+						}
+						
+					}
+				
+			})
         },
         cache: false,
         contentType: false,
