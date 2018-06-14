@@ -13,30 +13,26 @@
 						<form action="" method="post">
 							<input type="hidden" name="_token" value="{{csrf_token()}}">
 							<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label>Tên môn</label>
-										<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon" value="{{$up->tenmon}}">
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Tên môn</label>
+									<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon" value="{{$up->tenmon}}">
 									</div>
-							</div>
-							<div class="row">
+								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Số tín chỉ</label>
 										<input type="text" class="form-control" placeholder="Nhập số tín chỉ..." name="sotinchi" value="{{$up->sotinchi}}">
 									</div>
 								</div>
-							</div>
-							<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label>Số tiết</label>
-										<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet" value="{{$up->sotiet}}">
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Số tiết</label>
+									<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet" value="{{$up->sotiet}}">
 									</div>
+								</div>
 							</div>
-							<div class="text-center">
+							<div class="text-right">
 								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle"></i> Cập nhật</button>
 							</div>
 						</form>
