@@ -18,6 +18,8 @@ use App\Classes\My_Face;
 use Illuminate\Support\Carbon;
 use DB;
 use App\diemdanh;
+use DateTime;
+
 
 class Controller extends BaseController
 {
@@ -72,10 +74,11 @@ class Controller extends BaseController
 
     public function Train_data_image(Request $request,$id)
     {
+         
         $fail = [];
         $done = [];
         $result =  [];
-        
+       
         $dmm = new My_Face();
         $up = $request->file('upload');
         if(!empty($up))
@@ -83,18 +86,19 @@ class Controller extends BaseController
             if (count($up) > 0) {
                 foreach ($up as $data) {
     
-                    $result[] = $dmm->enroll($data,$id);
-                }
-                foreach($result as $val)
-                {
-                    if(isset($val->face_id)){
+
+                    $temp = $dmm->enroll($data,$id);
+                  
+                    if(isset($temp->face_id)){
                         $done[] = $data->getClientOriginalName();
                     }
                     else
                     {
                         $fail[] = $data->getClientOriginalName();
                     }
+                    $result[] = $temp;
                 }
+                
                
             }
         }
@@ -112,8 +116,25 @@ class Controller extends BaseController
         return redirect()->route('gdang-nhap');
     }
 
+    public function quanLyKhuonMat(){
+         $a = new My_Face();
+            $ds = isset($a->view()->subject_ids) ? $a->view()->subject_ids : [];
+
+        
+        $data = SinhVien::whereIn('masv',$ds)->get();
+        return view('modules.quanlykhuonmat',compact('data'));
+    }
+    public function DeleteKhuonMat($id){
+         $a = new My_Face();
+            $ds = $a->delete_subject($id);
+           if($ds->status == 'Complete')
+           {
+            return redirect()->back()->with(['mes' => "Đã xóa thành công khuôn mặt có id là {$id} ra khỏi hệ thống !"]);
+           }
+    }
     public function trainingList()
     {
+       
         $dslop = lop::all();
 
         return view('modules.training-list', compact('dslop'));
@@ -138,8 +159,12 @@ class Controller extends BaseController
         {
             $today = Carbon::today()->toDateString();
             $dmm = new My_Face();
+
             $data = $dmm->recognize($request->file('fileanh'));
-            // dd($data);
+            if(isset($data->Errors))
+            {
+                return response()->json(['Error' => 'Không có bất kì ảnh nào trong hệ thống ']);
+            }
             if(isset($data) && $request->get('monhoc') != '')
             {
                  foreach($data as $val)
@@ -347,8 +372,8 @@ class Controller extends BaseController
     public function Destroy_diemdanh(Request $request){
         if($request->ajax())
         {
-            //return $request->masv;
-            $dd=diemdanh::where('masv',$request->masv)->where('mamon',$request->mamon)->where('buoivang',$request->buoivang)->delete();
+
+            $dd=diemdanh::where('masv',$request->masv)->where('mamon',$request->mamon)->whereDate('buoivang', Carbon::parse(trim($request->buoibvang,'"'))->format('Y-m-d'))->delete();
             if($dd)
 
                 return 'ok';

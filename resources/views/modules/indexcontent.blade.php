@@ -130,7 +130,10 @@ $(document).ready(function () {
         success: function (data) {
         	$(".dimmer").removeClass('active');
             console.log(data);
-			
+			if(data.hasOwnProperty('Error'))
+			{
+				alert(data.Error);
+			}
 			$.each(data['images'],function(index,val1){
 				
 					if('transaction' in val1){

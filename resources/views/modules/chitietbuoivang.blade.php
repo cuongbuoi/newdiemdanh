@@ -20,7 +20,7 @@
 										<th>STT</th>
 										<th>MSSV</th>
 										<th>Tên sinh viên</th>
-										<th class="text-center">Vắng ngày</th>
+										<th class="text-center">Có mặt ngày</th>
 										<th class="text-right">Chức năng</th>
 									</tr>
 								</thead>
@@ -31,7 +31,7 @@
 										<td>{{ $key+1 }}</td>
 										<td class='masv'>{{ $val->masv }}</td>
 										<td>{{ $val->hoten }}</td>
-										<td class="text-center buoivang">{{ $val->buoivang }}</td>
+										<td class="text-center buoivang">{{ Carbon\Carbon::parse($val->buoivang)->format('d/m/Y') }}</td>
 										<td class="text-right">
 											<a class="btn btn-danger delete"><i class="fe fe-trash"></i> Xóa</a>
 										</td>

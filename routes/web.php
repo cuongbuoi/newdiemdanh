@@ -15,12 +15,9 @@
 use App\Classes\My_Face;
 
 Route::get('/test', function () {
-    // $image = base64_encode(file_get_contents('https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/34585047_1213055052163838_2607312007875002368_n.jpg?_nc_cat=0&_nc_eui2=AeFFYhRweclS4nkf-G-TvUNo5pHpArsaH9avicdACBUvp1eeXX1GSRmKPYxvkDAfZ3fcjLmj4YzpptJfj6Sdr2Flz_oO9fEKsQHVeOXycXu7nQ&oh=6b2dd504f1a070cbb1aa00d5b56ba1d1&oe=5BBB6A03'));
-    // echo $image;
-    // die();
     $a = new My_Face();
-    // dd($a->view());
-    dd($a->recognize('https://scontent.fvca1-1.fna.fbcdn.net/v/t1.0-9/11880378_500406640123413_6897335525622665309_n.jpg?_nc_cat=0&oh=ce4a397cbd8477c9f8d802d006f16034&oe=5B7C104C'));
+    dd($a->view());
+    // dd($a->recognize('https://scontent.fvca1-1.fna.fbcdn.net/v/t1.0-9/11880378_500406640123413_6897335525622665309_n.jpg?_nc_cat=0&oh=ce4a397cbd8477c9f8d802d006f16034&oe=5B7C104C'));
 });
 Route::get(
     '/',
@@ -75,6 +72,10 @@ Route::group(['prefix' => 'quan-ly', 'middleware' => ['checkAdmin']], function (
  
         Route::get('quan-ly-lop',['as'=>'gquan-ly-lop','uses'=>'Controller@GetquanLylop']);
         Route::post('quan-ly-lop',['as'=>'pquan-ly-lop','uses'=>'Controller@PostquanLylop']);
+
+        Route::get('quan-ly-khuon-mat',['as'=>'qlkhuonmat','uses'=>'Controller@quanLyKhuonMat']);
+        Route::get('delete_face/{id}',['as'=>'delface','uses'=>'Controller@DeleteKhuonMat']);
+
 
         Route::get('quan-ly-sinh-vien',['as'=>'quan-ly-sinh-vien','uses'=>'Controller@quanLySinhVien']);
         Route::post('quan-ly-sinh-vien',['as'=>'quan-ly-sinh-vien','uses'=>'Controller@Post_themsinhvien']);

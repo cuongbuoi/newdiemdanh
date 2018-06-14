@@ -70,4 +70,21 @@ class My_Face
 
         return $data ?? '';
     }
+
+        public function delete_subject($id)
+         {
+        
+        $data = $this->action('https://api.kairos.com/gallery/remove_subject',
+        [
+        
+        'gallery_name' => $this->gallery_name,
+        'subject_id' => $id
+        ]
+        );
+
+        return $data ?? '';
+    }
+
+
+
 }
