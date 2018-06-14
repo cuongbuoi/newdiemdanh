@@ -43,7 +43,7 @@
                         <h1>Admin Login</h1>
                   </div>
                   <div class="form-group">
-                    <label class="form-label">Email address</label>
+                    <label class="form-label">Username</label>
                     <input type="text" class="form-control" name='taikhoan' placeholder="Nhập Username">
                     <p class="text-danger">{{$errors->first('taikhoan')}}</p>
                   </div>

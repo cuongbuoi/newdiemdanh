@@ -8,38 +8,31 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title text-uppercase">Sửa Thông Tin Môn Học</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					<div class="card-body">
 						<form action="" method="post">
 							<input type="hidden" name="_token" value="{{csrf_token()}}">
 							<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label>Tên môn</label>
-										<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon" value="{{$up->tenmon}}">
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Tên môn</label>
+									<input type="text" class="form-control" placeholder="Nhập tên môn..." name="tenmon" value="{{$up->tenmon}}">
 									</div>
-							</div>
-							<div class="row">
+								</div>
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Số tín chỉ</label>
 										<input type="text" class="form-control" placeholder="Nhập số tín chỉ..." name="sotinchi" value="{{$up->sotinchi}}">
 									</div>
 								</div>
-							</div>
-							<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label>Số tiết</label>
-										<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet" value="{{$up->sotiet}}">
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Số tiết</label>
+									<input type="text" class="form-control" placeholder="Nhập số tiết..." name="sotiet" value="{{$up->sotiet}}">
 									</div>
+								</div>
 							</div>
-							<div class="text-center">
+							<div class="text-right">
 								<button class="btn btn-primary"><i class="fe fe-arrow-down-circle"></i> Cập nhật</button>
 							</div>
 						</form>
@@ -51,9 +44,6 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title text-uppercase">Danh sách môn học</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">

@@ -8,9 +8,6 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title text-uppercase">Danh sách điểm danh</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -33,7 +30,7 @@
 										<td>{{ $val->hoten }}</td>
 										<td class="text-center buoivang">{{ Carbon\Carbon::parse($val->buoivang)->format('d/m/Y') }}</td>
 										<td class="text-right">
-											<a class="btn btn-danger delete"><i class="fe fe-trash"></i> Xóa</a>
+											<a class="btn btn-danger delete" style="color:#fff"><i class="fe fe-trash"></i> Xóa</a>
 										</td>
 									</tr>
 									@endforeach

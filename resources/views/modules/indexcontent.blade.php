@@ -8,9 +8,6 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title">Nạp hình ảnh</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					<div class="card-body">
 						<div class="dimmer">
@@ -32,9 +29,6 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title">Thao tác</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					<div class="card-body">
 						
