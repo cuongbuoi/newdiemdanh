@@ -40,7 +40,7 @@
 										<td>{{ $val->gioitinh }}</td>
 										<td class="text-right">
 											
-											<a href="{{route('delface',[$val->masv])}}" class="btn btn-success delete"><i class="fe fe-delete"></i></a>
+											<a href="{{route('delface',[$val->masv])}}" class="btn btn-danger delete"><i class="fe fe-trash"></i> Xóa</a>
 										</td>
 									</tr>
 									@empty

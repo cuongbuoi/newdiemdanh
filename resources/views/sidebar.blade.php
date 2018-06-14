@@ -14,7 +14,7 @@
             <a href="{{route('training-list')}}"><i class="fe fe-gitlab"></i> Training khuôn mặt</a>
         </li>
          <li @if(Request::segment(2)=="quan-ly-khuon-mat" || Request::segment(2)=="quan-ly-khuon-mat") class="active" @endif>
-            <a href="{{route('qlkhuonmat')}}"><i class="fe fe-gitlab"></i> Quản lý khuôn mặt</a>
+            <a href="{{route('qlkhuonmat')}}"><i class="fe fe-github"></i> Quản lý khuôn mặt</a>
         </li>
         <li>
             <a href="#quanly" data-toggle="collapse" aria-expanded="false"><i class="fe fe-folder"></i> Quản lý<i class="dropdown-toggle float-right"></i></a>
