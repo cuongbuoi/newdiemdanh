@@ -8,9 +8,6 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title text-uppercase">Sửa Thông Tin Môn Học</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					<div class="card-body">
 						<form action="" method="post">
@@ -51,9 +48,6 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title text-uppercase">Danh sách môn học</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">

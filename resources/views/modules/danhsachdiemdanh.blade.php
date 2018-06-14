@@ -8,9 +8,6 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title text-uppercase">Thao tác</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					<div class="card-body">
 						<form action="" method="get">
@@ -50,9 +47,6 @@
 					<div class="card-status bg-blue"></div>
 					<div class="card-header">
 						<h3 class="card-title text-uppercase">Danh sách điểm danh</h3>
-						<div class="card-options">
-							<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						</div>
 					</div>
 					@if(count($data)>0)
 					<div class="card-body">

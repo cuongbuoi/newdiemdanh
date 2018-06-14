@@ -16,11 +16,11 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
             <a class="dropdown-item" href="#">
-              <i class="dropdown-icon fe fe-user"></i> Profile
+              <i class="fe fe-user" style="color:#999;"></i> Profile
             </a>
             <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{route('logout')}}">
-              <i class="dropdown-icon fe fe-log-out"></i> Đăng xuất
+              <i class="fe fe-log-out" style="color:#999;"></i> Đăng xuất
             </a>
           </div>
         </div>
